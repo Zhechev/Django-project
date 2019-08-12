@@ -15,9 +15,3 @@ def redirect_to_user_profile(request):
 class UserProfileView(generic.DetailView):
     model = User
     template_name = 'user_profile.html'
-
-
-class UserRegisterView(generic.CreateView):
-    form_class = UserCreationForm
-    template_name = 'register.html'
-    success_url = '/users/login'
