@@ -1,9 +1,8 @@
 from django.shortcuts import render
 from django.views import generic
+from objects.models import Object
 
 
-class HomePageView(generic.View):
+class HomePageView(generic.ListView):
+    queryset = Object.objects.all()
     template_name = 'home.html'
-
-    def get(self, request):
-        return render(request, self.template_name)

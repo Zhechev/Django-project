@@ -1,11 +1,20 @@
 {% load socialaccount %}
-
-<h1>Django Login Mega-Tutorial</h1>
+<p><a href="{% url 'home' %}">Начало</a></p>
 {% if user.is_authenticated %}
 <p>Welcome {{ user.username }} !!!</p>
-<p><a href="{% url 'account_logout' %}">Log out</a>
+<p><a href="{% url 'account_logout' %}">Излез</a>
 {% else %}
-<p><a href="{% url 'account_signup' %}">Sign Up</a></p>
-<p><a href="{% url 'account_login' %}">Log In </a></p>
-<p><a href="{% provider_login_url 'facebook' %}">Log In with Facebook</a></p>
+<p><a href="{% url 'account_signup' %}">Регистрирай се</a></p>
+<p><a href="{% url 'account_login' %}">Влез</a></p>
+<p><a href="{% provider_login_url 'facebook' %}">Влез с Facebook</a></p>
 {% endif %}
+<br />
+{% if messages %}
+<div class="messages">
+    {% for message in messages %}
+        <p{% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</p>
+    {% endfor %}
+</div>
+{% endif %}
+<br />
+<a href="{% url 'add-object' %}">Добави нов Обект</a>

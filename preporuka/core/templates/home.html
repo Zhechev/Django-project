@@ -1,5 +1,17 @@
 {% extends 'index.html' %}
 
 {% block 'body' %}
-<p>WORK!</p>
+<div class="container">
+    <h1 align="center">Обекти:</h1>
+  <div class="row">
+      {% for object in object_list %}
+         <div class="col-md-6">
+             <p>{{ object.title }}</p>
+             <p>{{ object.author }}</p>
+             <p>{{ object.address }}</p>
+             <p>{{ object.content }}</p>
+         </div>
+      {% endfor %}
+  </div>
+</div>
 {% endblock %}
