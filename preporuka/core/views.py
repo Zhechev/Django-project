@@ -1,8 +1,5 @@
-from django.shortcuts import render
-from django.views import generic
-from objects.models import Object
+from django.shortcuts import render, redirect
 
 
-class HomePageView(generic.ListView):
-    queryset = Object.objects.all()
-    template_name = 'home.html'
+def show_home_page(request):
+    return render(request, "home.html")

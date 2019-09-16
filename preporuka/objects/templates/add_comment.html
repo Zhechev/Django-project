@@ -1,0 +1,12 @@
+{% extends 'index.html' %}
+{% block 'head-title' %}
+    <title>Добави Обект</title>
+{% endblock %}
+{% block 'body' %}
+    <h1>Нов коментар</h1>
+    <form method="POST" class="">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit" class="save btn btn-default">Изпрати</button>
+    </form>
+{% endblock %}

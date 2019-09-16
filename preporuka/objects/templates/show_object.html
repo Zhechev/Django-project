@@ -1,0 +1,32 @@
+{% extends 'index.html' %}
+{% block 'head-title' %}
+    <title>Добави Обект</title>
+{% endblock %}
+{% block 'body' %}
+<p>Object</p>
+    <div class="col-md-12">
+        <h2>{{ object.title }}</h2>
+        Comments: {{ object.comments.count }}
+        <p>{{ object.author }}</p>
+        <p>{{ object.created_date }}</p>
+        <p>{{ object.address }}</p>
+        <p>{{ object.content }}</p>
+    </div>
+    <hr />
+    {% for comment in object.comments.all %}
+        <div class="comment">
+            <div class="date">{{ comment.created_date }}</div>
+            <strong>{{ comment.author }}</strong>
+            <p>{{ comment.content|linebreaks }}</p>
+        </div>
+        <hr />
+    {% empty %}
+        <p>No comments here yet :(</p>
+    {% endfor %}
+    <form method="POST" class="">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit" class="save btn btn-default">Изпрати</button>
+    </form>
+
+{% endblock %}

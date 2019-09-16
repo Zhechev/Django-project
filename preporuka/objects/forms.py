@@ -1,5 +1,5 @@
 from django import forms
-from .models import Object
+from .models import Object, Comment
 
 
 class ObjectForm(forms.ModelForm):
@@ -8,5 +8,12 @@ class ObjectForm(forms.ModelForm):
         fields = [
             'title',
             'address',
+            'content',
+        ]
+
+class CommentForm(forms.ModelForm):
+    class Meta:
+        model = Comment
+        fields = [
             'content',
         ]

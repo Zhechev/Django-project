@@ -6,4 +6,15 @@ $( document ).ready(function() {
         }, 3000);
     }
 
+    $('#sort-select').on('change', function() {
+        $.ajax({
+            url:"/",
+            type: "POST",
+            data: {sort: this.value},
+            success:function(response){
+
+            }
+        });
+    });
+
 });
