@@ -118,6 +118,7 @@
         </div>
         <div class="utf_right_side">
           <div class="header_widget">
+              <a href="{% url 'add-object' %}" class="button border with-icon"><i class="sl sl-icon-user"></i> Добави обект</a>
             {% if user.is_authenticated %}
               <a href="{% url 'redirect-user-profile' %}" class="button border with-icon"><i class="sl sl-icon-user"></i> Профил</a>
               <a href="{% url 'account_logout' %}" class="button border with-icon"><i class="sl sl-icon-user"></i> Излез</a>

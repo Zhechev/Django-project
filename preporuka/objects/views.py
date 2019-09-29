@@ -55,8 +55,8 @@ def show_object(request, pk):
 
     return render(request, "show_object.html", context)
 
-def show_all_objects(request):
-    objects = Object.objects.all()
+def show_all_objects(request, category_id):
+    objects = Object.objects.filter(category_id=category_id)
     context = {
         'object_list': objects,
     }

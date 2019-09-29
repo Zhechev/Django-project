@@ -4,10 +4,16 @@ from django.utils import timezone
 
 # Create your models here.
 
+class Category(models.Model):
+    title = models.CharField(max_length=50)
+
+    def __str__(self):
+        return f"{self.title}"
 
 class Object(models.Model):
     author = models.ForeignKey(ProfileUser, on_delete=models.CASCADE)
     title = models.CharField(max_length=300)
+    category = models.ForeignKey(Category, on_delete=models.CASCADE)
     address = models.CharField(max_length=300)
     content = models.TextField()
     created_date = models.DateTimeField(default=timezone.now)

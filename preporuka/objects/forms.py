@@ -6,6 +6,7 @@ class ObjectForm(forms.ModelForm):
     class Meta:
         model = Object
         fields = [
+            'category',
             'title',
             'address',
             'content',
