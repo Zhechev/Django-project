@@ -1,6 +1,7 @@
 {% extends 'index.html' %}
 
 {% block 'body' %}
+{% load static %}
 <!--<div class="container">-->
 <!--    <h1 align="center">Обекти:</h1>-->
 <!--    <form>-->
@@ -24,7 +25,7 @@
 <!--          {% endfor %}-->
 <!--    </div>-->
 <!--</div>-->
-  <div class="search_container_block home_main_search_part main_search_block" data-background-image="images/city_search_background.jpg">
+  <div class="search_container_block home_main_search_part main_search_block" data-background-image="{% static 'core/images/city_search_background.jpg' %}"/>
     <div class="main_inner_search_block">
       <div class="container">
         <div class="row">
@@ -107,31 +108,31 @@
     <div class="row">
       <div class="col-md-12">
         <div class="container_categories_box margin-top-5 margin-bottom-30">
-          <a href="{% url 'show-all-objects' category_id=1 %}" class="utf_category_small_box_part"> <i class="im im-icon-Chef"></i>
-			<h4>Ресторанти</h4>
+          <a href="{% url 'show-all-objects' category='Restaurant' %}" class="utf_category_small_box_part"> <i class="im im-icon-Chef"></i>
+			<h4>Ресторантии</h4>
 			<span>22</span>
           </a>
-          <a href="listings_list_with_sidebar.html" class="utf_category_small_box_part"> <i class="im im-icon-Dumbbell"></i>
+          <a href="{% url 'show-all-objects' category='SportFitness' %}" class="utf_category_small_box_part"> <i class="im im-icon-Dumbbell"></i>
 			<h4>Спортни и фитнес</h4>
 			<span>15</span>
           </a>
-          <a href="listings_list_with_sidebar.html" class="utf_category_small_box_part"> <i class="im im-icon-Car-Wheel"></i>
+          <a href="{% url 'show-all-objects' category='CarService' %}" class="utf_category_small_box_part"> <i class="im im-icon-Car-Wheel"></i>
 			<h4>Автосервизи</h4>
 			<span>05</span>
           </a>
-          <a href="listings_list_with_sidebar.html" class="utf_category_small_box_part"> <i class="im im-icon-Gemini-2"></i>
+          <a href="{% url 'show-all-objects' category='BeautySalon' %}" class="utf_category_small_box_part"> <i class="im im-icon-Gemini-2"></i>
 			<h4>Салони за красота</h4>
 			<span>12</span>
           </a>
-          <a href="listings_list_with_sidebar.html" class="utf_category_small_box_part"> <i class="im im-icon-Hamburger"></i>
+          <a href="{% url 'show-all-objects' category='FastFood' %}" class="utf_category_small_box_part"> <i class="im im-icon-Hamburger"></i>
 			<h4>Бързо хранене</h4>
 			<span>08</span>
           </a>
-          <a href="listings_list_with_sidebar.html" class="utf_category_small_box_part"> <i class="im im-icon-Car-2"></i>
+          <a href="{% url 'show-all-objects' category='CarWash' %}" class="utf_category_small_box_part"> <i class="im im-icon-Car-2"></i>
 			<h4>Автомивки</h4>
 			<span>18</span>
           </a>
-          <a href="listings_list_with_sidebar.html" class="utf_category_small_box_part"> <i class="im im-icon-Cardiovascular"></i>
+          <a href="{% url 'show-all-objects' category='Fun' %}" class="utf_category_small_box_part"> <i class="im im-icon-Cardiovascular"></i>
 			<h4>Забавлание</h4>
 			<span>14</span>
           </a>
@@ -143,7 +144,7 @@
 <!--			<h4>Dance Floor</h4>-->
 <!--			<span>20</span>-->
 <!--          </a>-->
-          <a href="listings_list_with_sidebar.html" class="utf_category_small_box_part"> <i class="im im-icon-Delicious"></i>
+          <a href="{% url 'show-all-objects' category='Other' %}" class="utf_category_small_box_part"> <i class="im im-icon-Delicious"></i>
 			<h4>Други</h4>
 			<span>07</span>
           </a>
@@ -164,7 +165,7 @@
 			<div class="col-md-12">
 				<div class="simple_slick_carousel_block utf_dots_nav">
 				  <div class="utf_carousel_item"> <a href="listings_single_page_1.html" class="utf_listing_item-container compact">
-					<div class="utf_listing_item"> <img src="images/utf_listing_item-01.jpg" alt=""> <span class="tag"><i class="im im-icon-Chef-Hat"></i> Restaurant</span> <span class="featured_tag">Featured</span>
+					<div class="utf_listing_item"> <img src="{% static 'core/images/utf_listing_item-01.jpg' %}" alt=""> <span class="tag"><i class="im im-icon-Chef-Hat"></i> Restaurant</span> <span class="featured_tag">Featured</span>
 					  <span class="utf_open_now">Open Now</span>
 					  <div class="utf_listing_item_content">
 					    <div class="utf_listing_prige_block">
@@ -185,7 +186,7 @@
 				  </div>
 
 				  <div class="utf_carousel_item"> <a href="listings_single_page_1.html" class="utf_listing_item-container compact">
-					<div class="utf_listing_item"> <img src="images/utf_listing_item-02.jpg" alt=""> <span class="tag"><i class="im im-icon-Electric-Guitar"></i> Events</span>
+					<div class="utf_listing_item"> <img src="{% static 'core/images/utf_listing_item-02.jpg' %}" alt=""> <span class="tag"><i class="im im-icon-Electric-Guitar"></i> Events</span>
 					  <div class="utf_listing_item_content">
 					    <div class="utf_listing_prige_block">
 							<span class="utf_meta_listing_price"><i class="fa fa-tag"></i> $45 - $70</span>
@@ -204,7 +205,7 @@
 				  </div>
 
 				  <div class="utf_carousel_item"> <a href="listings_single_page_1.html" class="utf_listing_item-container compact">
-					<div class="utf_listing_item"> <img src="images/utf_listing_item-03.jpg" alt=""> <span class="tag"><i class="im im-icon-Hotel"></i> Hotels</span>
+					<div class="utf_listing_item"> <img src="{% static 'core/images/utf_listing_item-03.jpg' %}" alt=""> <span class="tag"><i class="im im-icon-Hotel"></i> Hotels</span>
 					  <span class="utf_closed">Closed</span>
 					  <div class="utf_listing_item_content">
 					    <div class="utf_listing_prige_block">
@@ -224,7 +225,7 @@
 				  </div>
 
 				  <div class="utf_carousel_item"> <a href="listings_single_page_1.html" class="utf_listing_item-container compact">
-					<div class="utf_listing_item"> <img src="images/utf_listing_item-04.jpg" alt=""> <span class="tag"><i class="im im-icon-Dumbbell"></i> Fitness</span>
+					<div class="utf_listing_item"> <img src="{% static 'core/images/utf_listing_item-04.jpg' %}" alt=""> <span class="tag"><i class="im im-icon-Dumbbell"></i> Fitness</span>
 					  <div class="utf_listing_item_content">
 					    <div class="utf_listing_prige_block">
 							<span class="utf_meta_listing_price"><i class="fa fa-tag"></i> $45 - $70</span>
@@ -244,7 +245,7 @@
 				  </div>
 
 				  <div class="utf_carousel_item"> <a href="listings_single_page_1.html" class="utf_listing_item-container compact">
-					<div class="utf_listing_item"> <img src="images/utf_listing_item-05.jpg" alt=""> <span class="tag"><i class="im im-icon-Hotel"></i> Hotels</span> <span class="featured_tag">Featured</span>
+					<div class="utf_listing_item"> <img src="{% static 'core/images/utf_listing_item-05.jpg' %}" alt=""> <span class="tag"><i class="im im-icon-Hotel"></i> Hotels</span> <span class="featured_tag">Featured</span>
 					  <span class="utf_closed">Closed</span>
 					  <div class="utf_listing_item_content">
 					    <div class="utf_listing_prige_block">
@@ -264,7 +265,7 @@
 				   </div>
 
 				  <div class="utf_carousel_item"> <a href="listings_single_page_1.html" class="utf_listing_item-container compact">
-					<div class="utf_listing_item"> <img src="images/utf_listing_item-06.jpg" alt=""> <span class="tag"><i class="im im-icon-Chef-Hat"></i> Restaurant</span>
+					<div class="utf_listing_item"> <img src="{% static 'core/images/utf_listing_item-06.jpg' %}" alt=""> <span class="tag"><i class="im im-icon-Chef-Hat"></i> Restaurant</span>
 					  <span class="utf_open_now">Open Now</span>
 					  <div class="utf_listing_item_content">
 					    <div class="utf_listing_prige_block">
@@ -290,7 +291,7 @@
     </div>
   </section>
 
-  <a href="listings_grid_full_width.html" class="flip-banner parallax" data-background="images/slider-bg-02.jpg" data-color="#000" data-color-opacity="0.85" data-img-width="2500" data-img-height="1666">
+  <a href="listings_grid_full_width.html" class="flip-banner parallax" data-background="{% static 'core/images/slider-bg-02.jpg' %}" data-color="#000" data-color-opacity="0.85" data-img-width="2500" data-img-height="1666">
 	  <div class="flip-banner-content">
 		<h2 class="flip-visible">Browse Listings Attractions List</h2>
 	  </div>
@@ -310,7 +311,7 @@
           <div class="utf_testimonial_box">
             <div class="testimonial">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas in pulvinar neque. Nulla finibus lobortis pulvinar. Donec a consectetur nulla. Nulla posuere sapien vitae lectus suscipit, et pulvinar nisi tincidunt. Aliquam erat volutpat. Curabitur convallis fringilla diam sed aliquam. Sed tempor iaculis massa faucibus feugiat. In fermentum facilisis massa, a consequat purus viverra.</div>
           </div>
-          <div class="utf_testimonial_author"> <img src="images/happy-client-01.jpg" alt="">
+          <div class="utf_testimonial_author"> <img src="{% static 'core/images/happy-client-01.jpg' %}" alt="">
             <h4>Denwen Evil <span>Web Developer</span></h4>
           </div>
         </div>
@@ -318,7 +319,7 @@
           <div class="utf_testimonial_box">
             <div class="testimonial">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas in pulvinar neque. Nulla finibus lobortis pulvinar. Donec a consectetur nulla. Nulla posuere sapien vitae lectus suscipit, et pulvinar nisi tincidunt. Aliquam erat volutpat. Curabitur convallis fringilla diam sed aliquam. Sed tempor iaculis massa faucibus feugiat. In fermentum facilisis massa, a consequat purus viverra.</div>
           </div>
-          <div class="utf_testimonial_author"> <img src="images/happy-client-02.jpg" alt="">
+          <div class="utf_testimonial_author"> <img src="{% static 'core/images/happy-client-02.jpg' %}" alt="">
             <h4>Adam Alloriam <span>Web Developer</span></h4>
           </div>
         </div>
@@ -326,7 +327,7 @@
           <div class="utf_testimonial_box">
             <div class="testimonial">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas in pulvinar neque. Nulla finibus lobortis pulvinar. Donec a consectetur nulla. Nulla posuere sapien vitae lectus suscipit, et pulvinar nisi tincidunt. Aliquam erat volutpat. Curabitur convallis fringilla diam sed aliquam. Sed tempor iaculis massa faucibus feugiat. In fermentum facilisis massa, a consequat purus viverra.</div>
           </div>
-          <div class="utf_testimonial_author"> <img src="images/happy-client-03.jpg" alt="">
+          <div class="utf_testimonial_author"> <img src="{% static 'core/images/happy-client-03.jpg' %}" alt="">
             <h4>Illa Millia <span>Project Manager</span></h4>
           </div>
         </div>
@@ -334,7 +335,7 @@
           <div class="utf_testimonial_box">
             <div class="testimonial">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas in pulvinar neque. Nulla finibus lobortis pulvinar. Donec a consectetur nulla. Nulla posuere sapien vitae lectus suscipit, et pulvinar nisi tincidunt. Aliquam erat volutpat. Curabitur convallis fringilla diam sed aliquam. Sed tempor iaculis massa faucibus feugiat. In fermentum facilisis massa, a consequat purus viverra.</div>
           </div>
-          <div class="utf_testimonial_author"> <img src="images/happy-client-01.jpg" alt="">
+          <div class="utf_testimonial_author"> <img src="{% static 'core/images/happy-client-01.jpg' %}" alt="">
             <h4>Denwen Evil <span>Web Developer</span></h4>
           </div>
         </div>
@@ -348,7 +349,7 @@
         <h3 class="headline_part centered margin-bottom-35 margin-top-70">Most Popular Cities/Towns <span>Discover best things to do restaurants, shopping, hotels, cafes and places<br>around the world by categories.</span></h3>
       </div>
       <div class="col-md-3">
-         <a href="listings_list_with_sidebar.html" class="img-box" data-background-image="images/popular-location-01.jpg">
+         <a href="listings_list_with_sidebar.html" class="img-box" data-background-image="{% static 'core/images/popular-location-01.jpg' %}">
 			<div class="utf_img_content_box visible">
 			  <h4>Nightlife </h4>
 			  <span>18 Listings</span>
@@ -356,7 +357,7 @@
          </a>
 	  </div>
       <div class="col-md-3">
-         <a href="listings_list_with_sidebar.html" class="img-box" data-background-image="images/popular-location-02.jpg">
+         <a href="listings_list_with_sidebar.html" class="img-box" data-background-image="{% static 'core/images/popular-location-02.jpg' %}">
 			<div class="utf_img_content_box visible">
 			  <h4>Shops</h4>
 			  <span>24 Listings</span>
@@ -364,7 +365,7 @@
          </a>
 	  </div>
       <div class="col-md-6">
-         <a href="listings_list_with_sidebar.html" class="img-box" data-background-image="images/popular-location-03.jpg">
+         <a href="listings_list_with_sidebar.html" class="img-box" data-background-image="{% static 'core/images/popular-location-03.jpg' %}">
 			<div class="utf_img_content_box visible">
 			  <h4>Restaurant</h4>
 			  <span>17 Listings</span>
@@ -372,7 +373,7 @@
          </a>
 	  </div>
       <div class="col-md-6">
-         <a href="listings_list_with_sidebar.html" class="img-box" data-background-image="images/popular-location-04.jpg">
+         <a href="listings_list_with_sidebar.html" class="img-box" data-background-image="{% static 'core/images/popular-location-04.jpg' %}">
 			<div class="utf_img_content_box visible">
 			  <h4>Outdoor Activities</h4>
 			  <span>12 Listings</span>
@@ -380,7 +381,7 @@
          </a>
 	  </div>
       <div class="col-md-3">
-         <a href="listings_list_with_sidebar.html" class="img-box" data-background-image="images/popular-location-05.jpg">
+         <a href="listings_list_with_sidebar.html" class="img-box" data-background-image="{% static 'core/images/popular-location-05.jpg' %}">
 			<div class="utf_img_content_box visible">
 			  <h4>Hotels</h4>
 			  <span>14 Listings</span>
@@ -388,7 +389,7 @@
          </a>
 	  </div>
       <div class="col-md-3">
-         <a href="listings_list_with_sidebar.html" class="img-box" data-background-image="images/popular-location-06.jpg">
+         <a href="listings_list_with_sidebar.html" class="img-box" data-background-image="{% static 'core/images/popular-location-06.jpg' %}">
 			<div class="utf_img_content_box visible">
 			  <h4>New York</h4>
 			  <span>9 Listings</span>

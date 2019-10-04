@@ -597,8 +597,10 @@
             });
         });
         $('.utf_leave_rating input').change(function() {
+            console.log('alabala');
             var $radio = $(this);
             $('.utf_leave_rating .selected').removeClass('selected');
+            console.log($('.utf_leave_rating .selected'));
             $radio.closest('label').addClass('selected');
         });
         $('.utf_dashboard_navigation ul li a').on('click', function() {
@@ -787,6 +789,7 @@
             });
         });
         $(".listing-nav li:first-child a, a.utf_add_review-btn, a[href='#utf_add_review']").on('click', function(e) {
+        console.log(33332342);
             e.preventDefault();
             $('html,body').scrollTo(this.hash, this.hash, {
                 gap: {

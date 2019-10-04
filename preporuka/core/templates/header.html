@@ -1,3 +1,5 @@
+{% load static %}
+
 <!--{% load socialaccount %}-->
 <!--<p><a href="{% url 'home' %}">Начало</a></p>-->
 <!--{% if user.is_authenticated %}-->
@@ -23,7 +25,7 @@
     <div id="header">
       <div class="container">
         <div class="utf_left_side">
-          <div id="logo"> <a href="index_1.html"><img src="images/logo.png" alt=""></a> </div>
+          <div id="logo"> <a href="index_1.html"><img src="{% static 'core/images/logo.png' %}" alt=""></a> </div>
           <div class="nav_responsive"> <i class="fa fa-reorder menu-trigger"></i> </div>
           <nav id="navigation" class="style_one">
             <ul id="responsive">

@@ -1,8 +1,10 @@
 from django.shortcuts import render, redirect
 from django.views import generic
-from objects.models import Object, ProfileUser
+from objects.models import Object, ProfileUser, Comment, Restaurant, SportFitness, CarService, BeautySalon, FastFood, CarWash, Fun, Other
 from .forms import ObjectForm, CommentForm
 from django.contrib import messages
+from django.db.models import Avg
+import sys
 
 class AllObjects(generic.ListView):
     queryset = Object.objects.all()
@@ -14,7 +16,6 @@ class UserObjectsView(generic.ListView):
     def get_queryset(self):
         user_id = self.kwargs['pk']
         return Object.objects.filter(author_id = user_id)
-
 
 def add_object(request):
     if not request.user.is_authenticated:
@@ -36,53 +37,34 @@ def add_object(request):
 
 def show_object(request, pk):
     obj = Object.objects.get(id=pk)
-    form = CommentForm(request.POST or None)
-    if form.is_valid():
-        comment = form.save(commit=False)
-        comment.object = obj
+
+    if request.method == 'POST':
         user = request.user
         author = ProfileUser.objects.get(user=user)
+        comment = Comment()
+        comment.object = obj
         comment.author = author
+        comment.content = request.POST.get('content')
+        comment.rating = request.POST.get('rating')
         comment.save()
-        form = CommentForm()
-        messages.success(request, 'Успешно добавихте нов коментар!')
-        return redirect(request.path_info)
+
+    form = CommentForm()
+    reviews_count = Comment.objects.filter(object_id=pk).count()
+    rating = Comment.objects.filter(object_id=pk).aggregate(Avg('rating'))['rating__avg']
 
     context = {
         'form': form,
         'object': obj,
+        'reviews_count': reviews_count,
+        'rating': rating
     }
 
     return render(request, "show_object.html", context)
 
-def show_all_objects(request, category_id):
-    objects = Object.objects.filter(category_id=category_id)
+def show_all_objects(request, category):
+    objects = eval(category).objects.all()
     context = {
         'object_list': objects,
     }
 
     return render(request, 'show_all_objects.html', context)
-
-
-
-#
-# def add_comment_to_object(request, pk):
-#     if not request.user.is_authenticated:
-#         messages.info(request, 'За да добавите нов коментар, трябва да сте регистриран потребител!')
-#         return redirect('account_login')
-#     obj = Object.objects.get(id=pk)
-#     form = CommentForm(request.POST or None)
-#     if form.is_valid():
-#         comment = form.save(commit=False)
-#         comment.object = obj
-#         user = request.user
-#         author = ProfileUser.objects.get(user=user)
-#         comment.author = author
-#         comment.save()
-#         return redirect('home')
-#     else:
-#         form = CommentForm()
-#         context = {
-#             'form': form
-#         }
-#         return render(request, 'add_comment.html', context)

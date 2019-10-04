@@ -1,6 +1,7 @@
 {% extends 'index.html' %}
 
 {% block 'body' %}
+{% load static %}
   <div class="clearfix"></div>
   <div id="titlebar" class="gradient">
     <div class="container">
@@ -78,9 +79,9 @@
         <div class="row">
             {% for object in object_list %}
               <div class="col-lg-12 col-md-12">
-                <div class="utf_listing_item-container list-layout"> <a href="listings_single_page_1.html" class="utf_listing_item">
+                <div class="utf_listing_item-container list-layout"> <a href="{% url 'show-object' pk=object.id%}"  class="utf_listing_item">
                   <div class="utf_listing_item-image">
-                      <img src="images/utf_listing_item-01.jpg" alt="">
+                      <img src="{% static 'core/images/utf_listing_item-01.jpg' %}" alt="">
                       <span class="like-icon"></span>
                       <span class="tag"><i class="im im-icon-Hotel"></i> Hotels</span>
                       <div class="utf_listing_prige_block utf_half_list">
