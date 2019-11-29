@@ -945,19 +945,62 @@ function starRating(ratingElem) {
     $(ratingElem).each(function() {
         var dataRating = $(this).attr('data-rating');
 
-        function starsOutput(firstStar, secondStar, thirdStar, fourthStar, fifthStar) {
-            return ('' + '<span class="' + firstStar + '"></span>' + '<span class="' + secondStar + '"></span>' + '<span class="' + thirdStar + '"></span>' + '<span class="' + fourthStar + '"></span>' + '<span class="' + fifthStar + '"></span>');
+        function starsOutput(firstStar, secondStar, thirdStar, fourthStar, fifthStar, sixthStar, seventhStar, eighthStar, ninthStar, tenthStar) {
+            return ('' + '<span class="' + firstStar + '"></span>' + '<span class="' + secondStar + '"></span>' + '<span class="' + thirdStar + '"></span>' + '<span class="' + fourthStar + '"></span>' + '<span class="' + fifthStar + '"></span>' + '<span class="' + sixthStar + '"></span>' + '<span class="' + seventhStar + '"></span>' + '<span class="' + eighthStar + '"></span>' + '<span class="' + ninthStar + '"></span>' + '<span class="' + tenthStar + '"></span>');
         }
-        var fiveStars = starsOutput('star', 'star', 'star', 'star', 'star');
-        var fourHalfStars = starsOutput('star', 'star', 'star', 'star', 'star half');
-        var fourStars = starsOutput('star', 'star', 'star', 'star', 'star empty');
-        var threeHalfStars = starsOutput('star', 'star', 'star', 'star half', 'star empty');
-        var threeStars = starsOutput('star', 'star', 'star', 'star empty', 'star empty');
-        var twoHalfStars = starsOutput('star', 'star', 'star half', 'star empty', 'star empty');
-        var twoStars = starsOutput('star', 'star', 'star empty', 'star empty', 'star empty');
-        var oneHalfStar = starsOutput('star', 'star half', 'star empty', 'star empty', 'star empty');
-        var oneStar = starsOutput('star', 'star empty', 'star empty', 'star empty', 'star empty');
-        if (dataRating >= 4.75) {
+
+        var tenStars = starsOutput('star', 'star', 'star', 'star', 'star', 'star', 'star', 'star', 'star', 'star');
+        var nineHalfStars = starsOutput('star', 'star', 'star', 'star', 'star', 'star', 'star', 'star', 'star', 'star half');
+        var nineStars = starsOutput('star', 'star', 'star', 'star', 'star', 'star', 'star', 'star', 'star', 'star empty');
+        var eightHalfStars = starsOutput('star', 'star', 'star', 'star', 'star', 'star', 'star', 'star', 'star half', 'star empty');
+        var eightStars = starsOutput('star', 'star', 'star', 'star', 'star', 'star', 'star', 'star', 'star empty', 'star empty');
+        var sevenHalfStars = starsOutput('star', 'star', 'star', 'star', 'star', 'star', 'star', 'star half', 'star empty', 'star empty');
+        var sevenStars = starsOutput('star', 'star', 'star', 'star', 'star', 'star', 'star', 'star empty', 'star empty', 'star empty');
+        var sixHalfStars = starsOutput('star', 'star', 'star', 'star', 'star', 'star', 'star half', 'star empty', 'star empty', 'star empty');
+        var sixStars = starsOutput('star', 'star', 'star', 'star', 'star', 'star', 'star empty', 'star empty', 'star empty', 'star empty');
+        var fiveHalfStars = starsOutput('star', 'star', 'star', 'star', 'star', 'star half', 'star empty', 'star empty', 'star empty', 'star empty');
+        var fiveStars = starsOutput('star', 'star', 'star', 'star', 'star', 'star empty', 'star empty', 'star empty', 'star empty', 'star empty');
+        var fourHalfStars = starsOutput('star', 'star', 'star', 'star', 'star half', 'star empty', 'star empty', 'star empty', 'star empty', 'star empty');
+        var fourStars = starsOutput('star', 'star', 'star', 'star', 'star empty', 'star empty', 'star empty', 'star empty', 'star empty', 'star empty');
+        var threeHalfStars = starsOutput('star', 'star', 'star', 'star half', 'star empty', 'star empty', 'star empty', 'star empty', 'star empty', 'star empty');
+        var threeStars = starsOutput('star', 'star', 'star', 'star empty', 'star empty', 'star empty', 'star empty', 'star empty', 'star empty', 'star empty');
+        var twoHalfStars = starsOutput('star', 'star', 'star half', 'star empty', 'star empty', 'star empty', 'star empty', 'star empty', 'star empty', 'star empty');
+        var twoStars = starsOutput('star', 'star', 'star empty', 'star empty', 'star empty', 'star empty', 'star empty', 'star empty', 'star empty', 'star empty');
+        var oneHalfStar = starsOutput('star', 'star half', 'star empty', 'star empty', 'star empty', 'star empty', 'star empty', 'star empty', 'star empty', 'star empty');
+        var oneStar = starsOutput('star', 'star empty', 'star empty', 'star empty', 'star empty', 'star empty', 'star empty', 'star empty', 'star empty', 'star empty');
+
+
+        if (dataRating >= 9.75) {
+            $(this).append(tenStars);
+        }
+        else if (dataRating >= 9.25) {
+            $(this).append(nineHalfStars);
+        }
+        else if (dataRating >= 8.75) {
+            $(this).append(nineStars);
+        }
+        else if (dataRating >= 8.25) {
+            $(this).append(eightHalfStars);
+        }
+        else if (dataRating >= 7.75) {
+            $(this).append(eightStars);
+        }
+        else if (dataRating >= 7.25) {
+            $(this).append(sevenHalfStars);
+        }
+        else if (dataRating >= 6.75) {
+            $(this).append(sevenStars);
+        }
+        else if (dataRating >= 6.25) {
+            $(this).append(sixHalfStars);
+        }
+        else if (dataRating >= 5.75) {
+            $(this).append(sixStars);
+        }
+        else if (dataRating >= 5.25) {
+            $(this).append(fiveHalfStars);
+        }
+        else if (dataRating >= 4.75) {
             $(this).append(fiveStars);
         } else if (dataRating >= 4.25) {
             $(this).append(fourHalfStars);

@@ -11,23 +11,23 @@
 <!--<p><a href="{% provider_login_url 'facebook' %}">Влез с Facebook</a></p>-->
 <!--{% endif %}-->
 <!--<br />-->
-<!--{% if messages %}-->
-<!--<div class="messages">-->
-<!--    {% for message in messages %}-->
-<!--        <p{% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</p>-->
-<!--    {% endfor %}-->
-<!--</div>-->
-<!--{% endif %}-->
+<div class="messages">
+    {% if messages %}
+        {% for message in messages %}
+            <p>{% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</p>
+        {% endfor %}
+    {% endif %}
+</div>
 <!--<br />-->
-<!--<a href="{% url 'add-object' %}">Добави нов Обект</a>-->
+
 
   <header id="header_part">
     <div id="header">
       <div class="container">
-        <div class="utf_left_side">
-          <div id="logo"> <a href="index_1.html"><img src="{% static 'core/images/logo.png' %}" alt=""></a> </div>
+        <!div class="utf_left_side">
+          <div id="logo"> <a href="{% url 'home' %}"><img src="{% static 'core/images/logo.png' %}" alt=""></a> </div>
           <div class="nav_responsive"> <i class="fa fa-reorder menu-trigger"></i> </div>
-          <nav id="navigation" class="style_one">
+          <!--nav id="navigation" class="style_one">
             <ul id="responsive">
               <li><a class="current" href="{% url 'home' %}">Начало</a>
               </li>
@@ -117,10 +117,10 @@
             </ul>
           </nav>
           <div class="clearfix"></div>
-        </div>
+        </div -->
         <div class="utf_right_side">
           <div class="header_widget">
-              <a href="{% url 'add-object' %}" class="button border with-icon"><i class="sl sl-icon-user"></i> Добави обект</a>
+              <a href="{% url 'add-object' category='restaurants' %}" class="button border with-icon"><i class="sl sl-icon-user"></i> Добави обект</a>
             {% if user.is_authenticated %}
               <a href="{% url 'redirect-user-profile' %}" class="button border with-icon"><i class="sl sl-icon-user"></i> Профил</a>
               <a href="{% url 'account_logout' %}" class="button border with-icon"><i class="sl sl-icon-user"></i> Излез</a>

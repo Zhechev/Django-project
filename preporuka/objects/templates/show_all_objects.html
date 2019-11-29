@@ -77,9 +77,9 @@
           </div>
         </div>
         <div class="row">
-            {% for object in object_list %}
+            {% for object in objects %}
               <div class="col-lg-12 col-md-12">
-                <div class="utf_listing_item-container list-layout"> <a href="{% url 'show-object' pk=object.id%}"  class="utf_listing_item">
+                <div class="utf_listing_item-container list-layout"> <a href="{% url 'show-object' category=category pk=object.id page_num=1%}"  class="utf_listing_item">
                   <div class="utf_listing_item-image">
                       <img src="{% static 'core/images/utf_listing_item-01.jpg' %}" alt="">
                       <span class="like-icon"></span>
@@ -111,14 +111,26 @@
           <div class="col-md-12">
             <div class="utf_pagination_container_part margin-top-20 margin-bottom-70">
               <nav class="pagination">
-                <ul>
-                  <li><a href="#"><i class="sl sl-icon-arrow-left"></i></a></li>
-                  <li><a href="#" class="current-page">1</a></li>
-                  <li><a href="#">2</a></li>
-                  <li><a href="#">3</a></li>
-                  <li><a href="#">4</a></li>
-                  <li><a href="#"><i class="sl sl-icon-arrow-right"></i></a></li>
-                </ul>
+                  <ul>
+					  {% if objects.has_previous %}
+					    <li><a href="{% url 'show-all-objects' category=category page_num=1 %}"><i class="sl sl-icon-arrow-left-circle"></i></a></li>
+					  	<li><a href="{% url 'show-all-objects' category=category page_num=objects.previous_page_number %}"><i class="sl sl-icon-arrow-left"></i></a></li>
+					  {% endif %}
+<!--                    <li><a href="#" class="current-page">1</a></li>-->
+					{% for page in objects.paginator.page_range %}
+					  {% if page == page_num %}
+					  	<li><a href="{% url 'show-all-objects' category=category page_num=page %}" class="current-page">{{ page }}</a></li>
+					  {% else %}
+					  	{% if page > page_num|add:'-3' and page < page_num|add:'3' %}
+					  		<li><a href="{% url 'show-all-objects' category=category page_num=page %}">{{ page }}</a></li>
+					  	{% endif %}
+					  {% endif %}
+					{% endfor %}
+					  {% if objects.has_next %}
+					  	<li><a href="{% url 'show-all-objects' category=category page_num=objects.next_page_number  %}"><i class="sl sl-icon-arrow-right"></i></a></li>
+					  	<li><a href="{% url 'show-all-objects' category=category page_num=objects.paginator.num_pages %}"><i class="sl sl-icon-arrow-right-circle"></i></a></li>
+					  {% endif %}
+                  </ul>
               </nav>
             </div>
           </div>
